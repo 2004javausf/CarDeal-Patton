@@ -1,18 +1,7 @@
 package com.revature.beans;
 
-import java.io.Serializable;
-
-import com.revature.files.EmployeeToFile;
-import com.revature.files.UserLists;
-
-public class EmployeeBean implements Serializable{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7193563250591742081L;
-	
-	
+public class EmployeeBean{
+		
 	private String nameFirst;
 	private String nameLast;
 	private String uName;
@@ -20,8 +9,8 @@ public class EmployeeBean implements Serializable{
 	
 	public EmployeeBean() {
 		super();
-		UserLists.employeeFile.add(this);
-		EmployeeToFile.writeEmployeeFile(UserLists.employeeFile);
+//		UserLists.employeeFile.add(this);
+//		EmployeeToFile.writeEmployeeFile(UserLists.employeeFile);
 	}
 
 	public EmployeeBean(String nameFirst, String nameLast, String uName, String password) {
@@ -30,8 +19,8 @@ public class EmployeeBean implements Serializable{
 		this.nameLast = nameLast;
 		this.uName = uName;
 		this.password = password;
-		UserLists.employeeFile.add(this);
-		EmployeeToFile.writeEmployeeFile(UserLists.employeeFile);
+//		UserLists.employeeFile.add(this);
+//		EmployeeToFile.writeEmployeeFile(UserLists.employeeFile);
 	}
 	
 	public String getNameFirst() {

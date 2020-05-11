@@ -1,11 +1,8 @@
 package driver;
 
-import com.revature.beans.CustomerBean;
-import com.revature.files.CustomerToFile;
-import com.revature.files.EmployeeToFile;
-import com.revature.files.UserLists;
-import com.revature.menus.MainMenu;
-import com.revature.menus.employee.EmployeeLoginMenu;
+import java.sql.SQLException;
+
+import com.revature.dao.daoimpl.EmployeeDAOImpl;
 
 public class Driver {
 	
@@ -17,7 +14,16 @@ public class Driver {
 		
 		//System.out.println(UserLists.employeeFile.toString());
 		//System.out.println(UserLists.customerFile.toString());
-		MainMenu.mainMenu();
+		//MainMenu.mainMenu();
+		
+		EmployeeDAOImpl edi = new EmployeeDAOImpl();
+		
+		try {
+			edi.createEmployee("Zach", "Patton", "ZP", "pass");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 	}
