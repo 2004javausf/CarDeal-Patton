@@ -1,14 +1,15 @@
-package com.revature.menu;
+package com.revature.menu.viewcar;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.revature.beans.Car;
 import com.revature.daoimpl.CarDAOImpl;
+import com.revature.menu.EmployeeMenu;
 
-public class ViewCarCust {
+public class ViewCarEmp {
 	static Scanner scan = new Scanner(System.in);
-	public static void viewCarCust() {
+	public static void viewCarEmp() {
 		System.out.println("==========================");
 		System.out.println("         View Cars");
 		System.out.println("==========================");
@@ -28,16 +29,16 @@ public class ViewCarCust {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Return to Customer Menu? [Y/N]");
+		System.out.println("Return to Employee Menu? [Y/N]");
 		String a = scan.nextLine();
 		if (a.equalsIgnoreCase("y")) {
-			CustomerMenu.customerMenu();
+			EmployeeMenu.employeeMenu();
 		}else if (a.equalsIgnoreCase("n")) {
 			System.out.println("Exiting Application");
 		}else {
 			System.out.println("Invalid Entry");
-			System.out.println("Returning to Customer Menu");
-			CustomerMenu.customerMenu();
+			System.out.println("Returning to Employee Menu");
+			EmployeeMenu.employeeMenu();
 		}
 			
 	}

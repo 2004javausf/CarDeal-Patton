@@ -44,10 +44,37 @@ public class CarDAOImpl implements CarDAO{
 	@Override
 	public void removeCar(int car_id) throws SQLException {
 		Connection conn = cf.getConnection();
-		String sql = "DELETE FROM CAR WHERE CAR_ID = (?)";
+		String sql = "DELETE FROM OFFER WHERE CAR_ID = (?)";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, car_id);
 		ps.executeUpdate();
+		String sql1 = "DELETE FROM CAR WHERE CAR_ID = (?)";
+		PreparedStatement ps1 = conn.prepareStatement(sql1);
+		ps1.setInt(1, car_id);
+		ps1.executeUpdate();
+		
+	}
+
+	@Override
+	public List<Car> viewOneCar(int car_id) throws SQLException {
+		List<Car> carList1 = new ArrayList<Car>();
+		Connection conn = cf.getConnection();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT * FROM CAR WHERE (CAR_ID) = " + car_id );
+		Car ca1 = null;
+		while (rs.next()) {
+			ca1 = new Car(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5));
+			carList1.add(ca1);
+		}
+		return carList1;
+	}
+
+	@Override
+	public void grabCost(int car_id) throws SQLException {
+		Connection conn = cf.getConnection();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT CAR_COST FROM CAR WHERE CAR_ID) = " + car_id);
+		
 		
 	}
 

@@ -1,14 +1,17 @@
-package com.revature.menu;
+package com.revature.menu.viewcar;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.revature.beans.Car;
 import com.revature.daoimpl.CarDAOImpl;
+import com.revature.menu.CustomerMenu;
+import com.revature.menu.MakeOffer;
 
-public class ViewCarEmp {
+public class ViewCarCust {
 	static Scanner scan = new Scanner(System.in);
-	public static void viewCarEmp() {
+	public static void viewCarCust(String cust_user_name) {
+		String custUN = cust_user_name;
 		System.out.println("==========================");
 		System.out.println("         View Cars");
 		System.out.println("==========================");
@@ -28,16 +31,20 @@ public class ViewCarEmp {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Return to Employee Menu? [Y/N]");
+		System.out.println("[1] Make an Offer on a Car");
+		System.out.println("[2] Return to Customer Menu ");
+		System.out.println("[E] Exit Application ");
 		String a = scan.nextLine();
-		if (a.equalsIgnoreCase("y")) {
-			EmployeeMenu.employeeMenu();
+		if(a.equalsIgnoreCase("1")) {
+			MakeOffer.makeOffer(custUN);
+		}else if (a.equalsIgnoreCase("y")) {
+			CustomerMenu.customerMenu(custUN);
 		}else if (a.equalsIgnoreCase("n")) {
 			System.out.println("Exiting Application");
 		}else {
 			System.out.println("Invalid Entry");
-			System.out.println("Returning to Employee Menu");
-			EmployeeMenu.employeeMenu();
+			System.out.println("Returning to Customer Menu");
+			CustomerMenu.customerMenu(custUN);
 		}
 			
 	}

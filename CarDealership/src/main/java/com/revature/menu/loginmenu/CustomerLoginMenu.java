@@ -45,7 +45,7 @@ public class CustomerLoginMenu {
 		String h = scan.nextLine();
 		Customer j = cl(g,h);
 		if (j.getCust_user_name().equals(g)) {
-			CustomerMenu.customerMenu();
+			CustomerMenu.customerMenu(g);
 		}else {
 			System.out.println("Invalid Login");
 			customerLogin();

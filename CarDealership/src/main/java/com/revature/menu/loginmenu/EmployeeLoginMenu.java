@@ -16,7 +16,7 @@ public class EmployeeLoginMenu {
 		System.out.println("");
 		System.out.println("Please Enter Your Username");
 		String a = scan.nextLine();
-		System.out.println("Please Enter Your Username");
+		System.out.println("Please Enter Your Password");
 		String b = scan.nextLine();
 		Employee c = EmployeeLoginMenu.el(a, b);
 		if(c.getEmp_user_name().equals(a)){
