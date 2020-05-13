@@ -68,14 +68,4 @@ public class CarDAOImpl implements CarDAO{
 		}
 		return carList1;
 	}
-
-	@Override
-	public void grabCost(int car_id) throws SQLException {
-		Connection conn = cf.getConnection();
-		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("SELECT CAR_COST FROM CAR WHERE CAR_ID) = " + car_id);
-		
-		
-	}
-
 }

@@ -40,4 +40,17 @@ public class CustomerDAOImpl implements CustomerDAO {
 		}
 		return customerList;
 	}
+	@Override
+	public List<Customer> getOneCustomerList(String cust_user_name) throws SQLException {
+		List<Customer> oneCustomerList = new ArrayList<Customer>();
+		Connection conn = cf.getConnection();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT * FROM CUSTOMER WHERE (CUST_USER_NAME) = '" + cust_user_name + "'");
+		Customer c1 = null;
+		while (rs.next()) {
+			c1 = new Customer(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+			oneCustomerList.add(c1);
+		}
+		return oneCustomerList;
+	}
 }

@@ -19,12 +19,27 @@ public class Calculations {
 	}
 	
 	public double calculateStartingBalance(double cost, double offer) {
-		double c = (Math.round(cost-offer));
+		double c = (Math.round((cost-offer)*100.00)/100.00);
 		return c;
 	}
 	
 	public int remainingMonths (double bal, double monCost) {
 		int b = (int) (Math.round(bal/monCost));
 		return b;
+	}
+	
+	public double paymentMade (double bal1, double payment) {
+		double e = (Math.round((bal1-payment)*100.00)/100.00);
+		return e;
+	}
+	
+	public int remainingMonths1 (double bal2, double monCost1) {
+		int f = (int) (Math.round((bal2/monCost1)*100.00)/100.00);
+		return f;
+	}
+	
+	public double months (int months, double monthCost) {
+		double g = (Math.round((months*monthCost)*100.00)/100.00);
+		return g;
 	}
 }

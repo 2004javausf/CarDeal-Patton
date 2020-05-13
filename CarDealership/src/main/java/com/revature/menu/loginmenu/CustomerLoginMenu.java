@@ -6,6 +6,7 @@ import java.util.Scanner;
 import com.revature.beans.Customer;
 import com.revature.daoimpl.CustomerDAOImpl;
 import com.revature.menu.CustomerMenu;
+import com.revature.menu.OpenMenu;
 
 
 public class CustomerLoginMenu {
@@ -48,7 +49,7 @@ public class CustomerLoginMenu {
 			CustomerMenu.customerMenu(g);
 		}else {
 			System.out.println("Invalid Login");
-			customerLogin();
+			OpenMenu.openMenu();
 		}
 	
 	}
@@ -75,12 +76,12 @@ public class CustomerLoginMenu {
 				cdi.createCustomer(d, e, b, c);
 			} catch (SQLException e1) {
 				System.out.println("Username already in use");
-				System.out.println("Returning to customer screen");
+				System.out.println("Returning to customer login screen");
 				customerLoginMenu();
 				e1.printStackTrace();
 			}
 			System.out.println("Customer Login information created");
-			System.out.println("Returning to customer screen");
+			System.out.println("Returning to customer login screen");
 			customerLoginMenu();
 		}else if(f.equalsIgnoreCase("n")) {
 			System.out.println("Restarting create customer");

@@ -13,7 +13,5 @@ public interface CarDAO {
 	public List<Car> viewOneCar(int car_id) throws SQLException;
 	
 	public void removeCar(int car_id) throws SQLException;
-	
-	public void grabCost(int car_id) throws SQLException;
 }
 

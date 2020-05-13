@@ -6,6 +6,7 @@ import java.util.Scanner;
 import com.revature.beans.Employee;
 import com.revature.daoimpl.EmployeeDAOImpl;
 import com.revature.menu.EmployeeMenu;
+import com.revature.menu.OpenMenu;
 
 public class EmployeeLoginMenu {
 	static Scanner scan = new Scanner(System.in);
@@ -23,7 +24,7 @@ public class EmployeeLoginMenu {
 			EmployeeMenu.employeeMenu();
 		}else {
 			System.out.println("Invalid Login");
-			employeeLoginMenu();
+			OpenMenu.openMenu();
 		}
 	}
 	

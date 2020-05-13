@@ -3,6 +3,7 @@ package com.revature.menu;
 import java.util.Scanner;
 
 import com.revature.menu.viewcar.ViewCarEmp;
+import com.revature.menu.viewcar.ViewOwnedEmp;
 import com.revature.menu.viewoffer.ViewOfferEmp;
 
 public class EmployeeMenu {
@@ -17,6 +18,8 @@ public class EmployeeMenu {
 		System.out.println("[3] View Cars in Lot");
 		System.out.println("[4] View All Pending Offers");
 		System.out.println("[5] Approve/Deny Offers");
+		System.out.println("[6] View All Owned Cars");
+		System.out.println("[M] Return to Start Menu");
 		System.out.println("[E] Exit Application");
 		String a = scan.nextLine();
 		if (a.equals("1")) {
@@ -29,6 +32,10 @@ public class EmployeeMenu {
 			ViewOfferEmp.viewOfferEmp();
 		}else if (a.equalsIgnoreCase("5")) {
 			AppDenOffer.appDenOffer();
+		}else if (a.equalsIgnoreCase("6")) {
+			ViewOwnedEmp.viewOwnedEmp();
+		}else if (a.equalsIgnoreCase("m")) {
+			OpenMenu.openMenu();
 		}else if (a.equalsIgnoreCase("e")) {
 			System.out.println("Exiting Application");
 		}else {

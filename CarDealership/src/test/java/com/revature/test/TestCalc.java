@@ -37,4 +37,22 @@ class TestCalc {
 		double c = calcmon.remainingMonths(8000, 133.33);
 		assertEquals (60, c);
 	}
+	
+	@Test
+	void paymentTest() {
+		double c = calcmon.paymentMade(8000, 133.33);
+		assertEquals (7866.67, c);
+	}
+	
+	@Test
+	void remMonTest() {
+		double d = calcmon.remainingMonths1(7866.67, 133.33);
+		assertEquals (59, d);
+	}
+	
+	@Test
+	void monTest() {
+		double e = calcmon.months(2, 133.33);
+		assertEquals (266.66, e);
+	}
 }
