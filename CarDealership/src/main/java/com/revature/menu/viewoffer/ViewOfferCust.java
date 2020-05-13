@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import com.revature.beans.OfferPro;
 import com.revature.daoimpl.OfferProDAOImpl;
+import com.revature.logger.LoggerPage;
 import com.revature.menu.CustomerMenu;
 
 public class ViewOfferCust {
@@ -26,6 +27,7 @@ public class ViewOfferCust {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		LoggerPage.Log4("info", "Customer " + custUN + " has viewed the cars they have pending offers on");
 		System.out.println("[1] Return to Customer Menu");
 		System.out.println("[E] Exit Application");
 		String a = scan.nextLine();

@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import com.revature.beans.Customer;
 import com.revature.daoimpl.CustomerDAOImpl;
+import com.revature.logger.LoggerPage;
 import com.revature.menu.CustomerMenu;
 import com.revature.menu.OpenMenu;
 
@@ -46,6 +47,7 @@ public class CustomerLoginMenu {
 		String h = scan.nextLine();
 		Customer j = cl(g,h);
 		if (j.getCust_user_name().equals(g)) {
+			LoggerPage.Log4("info", "Customer " + g + " has logged in");
 			CustomerMenu.customerMenu(g);
 		}else {
 			System.out.println("Invalid Login");
@@ -82,6 +84,7 @@ public class CustomerLoginMenu {
 			}
 			System.out.println("Customer Login information created");
 			System.out.println("Returning to customer login screen");
+			LoggerPage.Log4("info", "Customer " + d + " " + e + " with username: " + b + "has been created");
 			customerLoginMenu();
 		}else if(f.equalsIgnoreCase("n")) {
 			System.out.println("Restarting create customer");

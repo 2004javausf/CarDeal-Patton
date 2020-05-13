@@ -4,11 +4,13 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.revature.daoimpl.CarDAOImpl;
+import com.revature.logger.LoggerPage;
 
 public class CreateCar {
 	static Scanner scan = new Scanner(System.in);
 	static Scanner scandub = new Scanner(System.in);
-	public static void createCar() {
+	public static void createCar(String emp_user_name) {
+		String empUN = emp_user_name;
 		CarDAOImpl cadi = new CarDAOImpl();
 		System.out.println("==========================");
 		System.out.println("     Add Car to Lot");
@@ -31,18 +33,19 @@ public class CreateCar {
 			try {
 				cadi.createCar(a,b,c,d);
 				System.out.println("Car Information added to Database");
-				EmployeeMenu.employeeMenu();
+				LoggerPage.Log4("info", "Car |" + a + "||" + b + "||" + c + "||$" + d + "| has bean created");
+				EmployeeMenu.employeeMenu(empUN);
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}else if(e.equalsIgnoreCase("n")){
 			System.out.println("Returning to top");
-			createCar();
+			createCar(empUN);
 		}else {
 			System.out.println("Invalid Entry");
 			System.out.println("Returning to top");
-			createCar();
+			createCar(empUN);
 		}
 	}
 }

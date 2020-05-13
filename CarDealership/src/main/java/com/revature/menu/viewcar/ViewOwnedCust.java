@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import com.revature.beans.OwnedCars;
 import com.revature.daoimpl.OwnedCarDAOImpl;
+import com.revature.logger.LoggerPage;
 import com.revature.menu.CustomerMenu;
 import com.revature.menu.MakeOffer;
 import com.revature.menu.MakePayment;
@@ -34,8 +35,9 @@ public class ViewOwnedCust {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		LoggerPage.Log4("info", "Customer " + custUN + " has viewed the cars they own");
 		System.out.println("[1] Make a Payment");
-		System.out.println("[2] Return to Customer Menu ");
+		System.out.println("[2] Return to Customer Menu");
 		System.out.println("[E] Exit Application ");
 		String a = scan.nextLine();
 		if(a.equalsIgnoreCase("1")) {
@@ -43,6 +45,7 @@ public class ViewOwnedCust {
 		}else if (a.equalsIgnoreCase("2")) {
 			CustomerMenu.customerMenu(custUN);
 		}else if (a.equalsIgnoreCase("e")) {
+			LoggerPage.Log4("info", "Application closed, all users logged out");
 			System.out.println("Exiting Application");
 		}else {
 			System.out.println("Invalid Entry");

@@ -7,6 +7,7 @@ import java.util.Scanner;
 import com.revature.beans.OwnedCars;
 import com.revature.calculations.Calculations;
 import com.revature.daoimpl.OwnedCarDAOImpl;
+import com.revature.logger.LoggerPage;
 
 public class MakePayment {
 	static Scanner scan = new Scanner(System.in);
@@ -68,6 +69,8 @@ public class MakePayment {
 									System.out.println();
 									System.out.println("============================================================================");
 									System.out.println("Returning to Customer Menu");
+									LoggerPage.Log4("info", "Customer " + custUN + " has made a payment of " + payment + " on the car with ID: " + a + ".");
+									LoggerPage.Log4("info", "The new balance for that car is " + newBal);
 									CustomerMenu.customerMenu(cust_user_name);
 								}
 							} catch (SQLException e1) {
@@ -110,6 +113,8 @@ public class MakePayment {
 									System.out.println();
 									System.out.println("============================================================================");
 									System.out.println("Returning to Customer Menu");
+									LoggerPage.Log4("info", "Customer " + custUN + " has made a payment of " + payment + " on the car with ID: " + a + ".");
+									LoggerPage.Log4("info", "The new balance for that car is " + newBal);
 									CustomerMenu.customerMenu(cust_user_name);
 								}
 							} catch (SQLException e1) {
@@ -131,6 +136,7 @@ public class MakePayment {
 				System.out.println("Returning to Customer Menu");
 				CustomerMenu.customerMenu(cust_user_name);
 			}else if (b.equalsIgnoreCase("e")) {
+				LoggerPage.Log4("info", "Application closed, all users logged out");
 				System.out.println("Exiting Application");
 			}else {
 				System.out.println("Invalid Entry");

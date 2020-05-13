@@ -2,6 +2,7 @@ package com.revature.menu;
 
 import java.util.Scanner;
 
+import com.revature.logger.LoggerPage;
 import com.revature.menu.viewcar.ViewCarCust;
 import com.revature.menu.viewcar.ViewOwnedCust;
 import com.revature.menu.viewoffer.ViewOfferCust;
@@ -33,8 +34,10 @@ public class CustomerMenu {
 		}else if(a.equalsIgnoreCase("5")) {
 			MakePayment.makePayment(custUN);
 		}else if(a.equalsIgnoreCase("m")) {
+			LoggerPage.Log4("info", "Customer " + custUN + " has logged out");
 			OpenMenu.openMenu();
 		}else if(a.equalsIgnoreCase("e")) {
+			LoggerPage.Log4("info", "Application closed, all users logged out");
 			System.out.println("Exiting Application");
 		}else {
 			System.out.println("Invalid Entry");

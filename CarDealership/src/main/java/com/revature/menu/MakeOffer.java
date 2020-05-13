@@ -7,6 +7,7 @@ import java.util.Scanner;
 import com.revature.beans.Car;
 import com.revature.daoimpl.CarDAOImpl;
 import com.revature.daoimpl.OfferProDAOImpl;
+import com.revature.logger.LoggerPage;
 import com.revature.menu.viewcar.ViewCarCust;
 
 public class MakeOffer  {
@@ -54,6 +55,7 @@ public class MakeOffer  {
 						System.out.println("Please come back later to see if has won");
 						System.out.println("====================================================");
 						System.out.println("Returning to Customer Menu");
+						LoggerPage.Log4("info", "Customer " + custUN + " has made a bid of " + c + " on the car with ID: " + a);
 						CustomerMenu.customerMenu(custUN);
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block

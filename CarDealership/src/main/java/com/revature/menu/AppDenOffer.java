@@ -12,13 +12,15 @@ import com.revature.daoimpl.CarDAOImpl;
 import com.revature.daoimpl.CustomerDAOImpl;
 import com.revature.daoimpl.OfferProDAOImpl;
 import com.revature.daoimpl.OwnedCarDAOImpl;
+import com.revature.logger.LoggerPage;
 
 
 public class AppDenOffer {
 	static Scanner scan = new Scanner(System.in);
 	static Scanner scanInt = new Scanner(System.in);
 	
-	public static void appDenOffer() {
+	public static void appDenOffer(String emp_user_name) {
+		String empUN = emp_user_name;
 		System.out.println("===================================");
 		System.out.println("      Approve/Deny Offer Menu");
 		System.out.println("===================================");
@@ -44,7 +46,7 @@ public class AppDenOffer {
 			} catch (SQLException e) {
 				System.out.println("No car with that ID");
 				System.out.println("Returning to Employee Menu");
-				EmployeeMenu.employeeMenu();
+				EmployeeMenu.employeeMenu(empUN);
 				e.printStackTrace();
 			}
 			System.out.println("Which Customer has won the bid?");
@@ -90,7 +92,9 @@ public class AppDenOffer {
 						System.out.println(cdi.viewOneCar(a));
 						System.out.println("Is now owned by " + cust.getCust_name_first() + " " + cust.getCust_name_last());
 						cdi.removeCar(a);
-						EmployeeMenu.employeeMenu();
+						LoggerPage.Log4("info", "Car ID " + a + " has been purchased by " + b);
+						LoggerPage.Log4("info", "Car ID " + a + " has been removed from lot and offer pool");
+						EmployeeMenu.employeeMenu(empUN);
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -115,7 +119,9 @@ public class AppDenOffer {
 						System.out.println(cdi.viewOneCar(a));
 						System.out.println("Is now owned by " + cust.getCust_name_first() + " " + cust.getCust_name_last());
 						cdi.removeCar(a);
-						EmployeeMenu.employeeMenu();
+						LoggerPage.Log4("info", "Car ID " + a + " has been purchased by " + b);
+						LoggerPage.Log4("info", "Car ID " + a + " has been removed from lot and offer pool");
+						EmployeeMenu.employeeMenu(empUN);
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -123,19 +129,19 @@ public class AppDenOffer {
 				}else {
 					System.out.println("Invalid Entry");
 					System.out.println("Returning to the top");
-					AppDenOffer.appDenOffer();
+					AppDenOffer.appDenOffer(empUN);
 				}
 			}else if (yn.equalsIgnoreCase("n")) {
 				System.out.println("Returning to the top");
-				AppDenOffer.appDenOffer();
+				AppDenOffer.appDenOffer(empUN);
 			}else {
 				System.out.println("Invalid Entry");
 				System.out.println("Returning to the top");
-				AppDenOffer.appDenOffer();
+				AppDenOffer.appDenOffer(empUN);
 			}
 		} catch (InputMismatchException m) {
 			System.out.println("Returning to the Employee Menu");
-			EmployeeMenu.employeeMenu();
+			EmployeeMenu.employeeMenu(empUN);
 		}
 	}
 }

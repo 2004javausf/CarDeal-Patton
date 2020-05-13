@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import com.revature.beans.Employee;
 import com.revature.daoimpl.EmployeeDAOImpl;
+import com.revature.logger.LoggerPage;
 import com.revature.menu.EmployeeMenu;
 import com.revature.menu.OpenMenu;
 
@@ -21,7 +22,8 @@ public class EmployeeLoginMenu {
 		String b = scan.nextLine();
 		Employee c = EmployeeLoginMenu.el(a, b);
 		if(c.getEmp_user_name().equals(a)){
-			EmployeeMenu.employeeMenu();
+			LoggerPage.Log4("info", "Employee " + a + " has logged in");
+			EmployeeMenu.employeeMenu(a);
 		}else {
 			System.out.println("Invalid Login");
 			OpenMenu.openMenu();
